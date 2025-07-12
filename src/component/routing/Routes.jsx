@@ -1,5 +1,5 @@
 
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 import Home from '../../Pages/home/Home'
 import About from '../../Pages/about/About'
 import AppLayout from '../PageLayout/AppLayout'
@@ -9,7 +9,7 @@ import Countries from '../../Pages/countries/Countries'
 import CountryDetails from '../Country/CountryDetails'
 
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
     {
         element: <AppLayout />,
         errorElement: <ErrorPage />,
