@@ -11,6 +11,7 @@ import CountryDetails from '../Country/CountryDetails'
 
 const routes = createHashRouter([
     {
+        path: "/",
         element: <AppLayout />,
         errorElement: <ErrorPage />,
         children: [
