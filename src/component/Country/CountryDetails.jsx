@@ -1,20 +1,26 @@
 import React, { useEffect, useState, useTransition } from 'react'
 import {  useNavigate, useParams } from 'react-router-dom'
-import { getCountries } from '../../api/Countries';
+import { getCountry } from '../../api/Countries';
 import "./CountryDetails.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Button from '../../common/Button/Button';
 const CountryDetails = () => {
     // const params = useParams();
     const {code} = useParams();
+    console.log(code)
     const [isPending, startTransition] = useTransition();
     const [data, setData] = useState();
     const navigate = useNavigate();
     useEffect(() => {
         startTransition(async () => {
-          const res = await getCountries();
-            const countries = await res.data;
-            setData(countries.find(country => country.code === code))
+          const res = await getCountry(code);
+            // const countries = await res.data;
+            // setData(countries.find(country => country.code === code))
+            
+             startTransition(() => {
+console.log(res)
+            setData(res)
+            })
         })
         
     },[code])
